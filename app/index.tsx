@@ -5,10 +5,22 @@ import {
   Inter_400Regular,
   Inter_700Bold,
 } from '@expo-google-fonts/inter'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useRouter, useFocusEffect } from 'expo-router'
+import * as Clipboard from 'expo-clipboard'
+import { useMMKVObject } from 'react-native-mmkv'
 
 import { Header } from '../components/header'
 import { List } from '../components/list'
-import { storage } from '../storage/storage'
+
+import { MMKV, storage } from '../storage/storage'
+
+export type Data = {
+  description: string
+  password: string
+  login: string
+  title: string
+}
 
 export default function App() {
   const [fontIsLoaded] = useFonts({
@@ -17,13 +29,30 @@ export default function App() {
     Inter_700Bold,
   })
 
+  const [data, _] = useMMKVObject<Data[]>('data')
+
+  const { push } = useRouter()
+
+  const fetchCopiedText = async () => {
+    const text = await Clipboard.getStringAsync()
+    console.log(text)
+  }
+
+  fetchCopiedText()
+
+  /** useFocusEffect(
+    useCallback(() => {
+      const passwords = storage.GET<Data[]>('data')
+
+      if (passwords) {
+        setData((prev) => [...prev, passwords])
+      }
+    }, []),
+  ) */
+
   if (!fontIsLoaded) {
     return null
   }
-
-  const keys = ['Email', 'Facebook', 'Instagram']
-
-  console.log('--', storage.GET('password'))
 
   return (
     <>
@@ -33,25 +62,23 @@ export default function App() {
       </Header.Root>
 
       <List.Root
-        data={keys}
+        data={data}
         renderItem={({ item, index }) => (
-          <List.Item>
+          <List.Item
+            onPress={() =>
+              push({
+                pathname: '/create',
+                params: { ...item, is_create: false },
+              })
+            }
+          >
             <List.ItemIndex>
               {index + 1 > 10 ? index + 1 : `0${index + 1}`}
             </List.ItemIndex>
-            <List.ItemTitle>{item}</List.ItemTitle>
+            <List.ItemTitle>{item.title}</List.ItemTitle>
           </List.Item>
         )}
       />
     </>
   )
 }
-
-/** Tasks
- *
- * [ ] Put cp to clipboard
- * [ ] Animations
- * [ ] Use nativewind SVG to test plus icon
- * [ ] Route animations
- * [ ] Update password page
- */

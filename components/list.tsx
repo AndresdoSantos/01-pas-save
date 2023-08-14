@@ -3,8 +3,8 @@ import {
   FlatListProps,
   Text,
   TextProps,
-  View,
-  ViewProps,
+  Pressable,
+  PressableProps,
 } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 
@@ -14,13 +14,18 @@ function Root<T>({ data, ...props }: RootProps<T>) {
   return <FlatList className="mt-20" data={data} {...props} />
 }
 
-function Item({ children, ...props }: ViewProps) {
+function Item({
+  children,
+  ...props
+}: Omit<PressableProps, 'children'> & {
+  children: JSX.Element | JSX.Element[]
+}) {
   return (
-    <View className="flex-row items-center w-full mb-5" {...props}>
+    <Pressable className="flex-row items-center w-full mb-5" {...props}>
       {children}
 
       <Feather name="arrow-up-right" size={16} style={{ marginLeft: 'auto' }} />
-    </View>
+    </Pressable>
   )
 }
 

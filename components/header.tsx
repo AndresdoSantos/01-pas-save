@@ -1,5 +1,5 @@
 import { Pressable, Text, TextProps, View, ViewProps } from 'react-native'
-import { Link } from 'expo-router'
+import { Link, useRouter } from 'expo-router'
 
 function Root({ children, ...props }: ViewProps) {
   return (
@@ -21,13 +21,23 @@ function Title({ children, bold, ...props }: TextProps & { bold: string }) {
 }
 
 function Icon() {
+  const { push } = useRouter()
+
   return (
-    <Link href="/create" asChild>
-      <Pressable className="items-center justify-center h-10 w-10 rounded-full bg-zinc-700">
-        <View className="absolute w-4 h-[1px] bg-white" />
-        <View className="h-4 w-[1px] bg-white" />
-      </Pressable>
-    </Link>
+    <Pressable
+      onPress={() =>
+        push({
+          pathname: '/create',
+          params: {
+            is_create: true,
+          },
+        })
+      }
+      className="items-center justify-center h-10 w-10 rounded-full bg-zinc-700"
+    >
+      <View className="absolute w-4 h-[1px] bg-white" />
+      <View className="h-4 w-[1px] bg-white" />
+    </Pressable>
   )
 }
 

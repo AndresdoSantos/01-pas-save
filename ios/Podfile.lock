@@ -11,6 +11,8 @@ PODS:
     - ExpoModulesCore
   - Expo (49.0.7):
     - ExpoModulesCore
+  - ExpoClipboard (4.3.1):
+    - ExpoModulesCore
   - ExpoHead (0.0.11):
     - ExpoModulesCore
   - ExpoKeepAwake (12.3.0):
@@ -463,6 +465,35 @@ PODS:
     - React-perflogger (= 0.72.3)
   - RNGestureHandler (2.12.1):
     - React-Core
+  - RNReanimated (3.3.0):
+    - DoubleConversion
+    - FBLazyVector
+    - glog
+    - hermes-engine
+    - RCT-Folly
+    - RCTRequired
+    - RCTTypeSafety
+    - React-callinvoker
+    - React-Core
+    - React-Core/DevSupport
+    - React-Core/RCTWebSocket
+    - React-CoreModules
+    - React-cxxreact
+    - React-hermes
+    - React-jsi
+    - React-jsiexecutor
+    - React-jsinspector
+    - React-RCTActionSheet
+    - React-RCTAnimation
+    - React-RCTAppDelegate
+    - React-RCTBlob
+    - React-RCTImage
+    - React-RCTLinking
+    - React-RCTNetwork
+    - React-RCTSettings
+    - React-RCTText
+    - ReactCommon/turbomodule/core
+    - Yoga
   - RNScreens (3.22.1):
     - React-Core
     - React-RCTImage
@@ -477,6 +508,7 @@ DEPENDENCIES:
   - EXFileSystem (from `../node_modules/expo-file-system/ios`)
   - EXFont (from `../node_modules/expo-font/ios`)
   - Expo (from `../node_modules/expo`)
+  - ExpoClipboard (from `../node_modules/expo-clipboard/ios`)
   - ExpoHead (from `../node_modules/expo-head/ios`)
   - ExpoKeepAwake (from `../node_modules/expo-keep-awake/ios`)
   - ExpoModulesCore (from `../node_modules/expo-modules-core`)
@@ -522,6 +554,7 @@ DEPENDENCIES:
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -548,6 +581,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-font/ios"
   Expo:
     :path: "../node_modules/expo"
+  ExpoClipboard:
+    :path: "../node_modules/expo-clipboard/ios"
   ExpoHead:
     :path: "../node_modules/expo-head/ios"
   ExpoKeepAwake:
@@ -635,6 +670,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNReanimated:
+    :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   Yoga:
@@ -648,6 +685,7 @@ SPEC CHECKSUMS:
   EXFileSystem: 941b273758aee14be2ecc671dacb4f10dd28c833
   EXFont: 738c44c390953ebcbab075a4848bfbef025fd9ee
   Expo: d310f3b84bd30843324d41f23ea7cc5e4273abf1
+  ExpoClipboard: 695f274f8e028cd113837f917da40c76850877eb
   ExpoHead: 8da645502363b53eeb99d99276a0adbe0ec8cff0
   ExpoKeepAwake: be4cbd52d9b177cde0fd66daa1913afa3161fc1d
   ExpoModulesCore: e4e437139259c5a73530a8895af69774ff8ec12d
@@ -695,6 +733,7 @@ SPEC CHECKSUMS:
   React-utils: bcb57da67eec2711f8b353f6e3d33bd8e4b2efa3
   ReactCommon: 3ccb8fb14e6b3277e38c73b0ff5e4a1b8db017a9
   RNGestureHandler: c0d04458598fcb26052494ae23dda8f8f5162b13
+  RNReanimated: 9f7068e43b9358a46a688d94a5a3adb258139457
   RNScreens: 50ffe2fa2342eabb2d0afbe19f7c1af286bc7fb3
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 8796b55dba14d7004f980b54bcc9833ee45b28ce
