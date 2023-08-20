@@ -49,7 +49,11 @@ export default function Create() {
 
       setData([...filtered_data, input])
     } else {
-      setData([...data, input])
+      if (!data) {
+        setData([input])
+      } else {
+        setData([...data, input])
+      }
     }
 
     back()
@@ -102,7 +106,9 @@ export default function Create() {
       </Pressable>
 
       <Header.Root>
-        <Header.Title bold="PASSWORD">CREATE A SECRET</Header.Title>
+        <Header.Title bold="PASSWORD">
+          {is_update ? 'UPDATE THE' : 'CREATE A SECRET'}
+        </Header.Title>
       </Header.Root>
 
       <BottomSheetModalProvider>
